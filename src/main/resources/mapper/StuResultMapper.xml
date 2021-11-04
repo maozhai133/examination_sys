@@ -1,0 +1,18 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rgobj.generalproblemdemo.mapper.StuResultMapper">
+
+    <insert id="add" parameterType="com.rgobj.generalproblemdemo.bean.StuResultBean">
+        insert into stu_result values (#{stu_score},#{stu_username},#{stu_finishtime},#{stu_questioncode},#{stu_questiontitle})
+    </insert>
+
+    <select id="queryAllByName" resultType="com.rgobj.generalproblemdemo.bean.StuResultBean">
+        SELECT * from stu_result where stu_username = #{stu_username}
+    </select>
+
+    <delete id="deleteBySelect" parameterType="com.rgobj.generalproblemdemo.bean.StuResultBean">
+        DELETE from stu_result where stu_username = #{stu_username} and stu_finishtime= #{stu_finishtime}
+    </delete>
+
+</mapper>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rgobj.generalproblemdemo.mapper.QuestionInfoMapper">
+
+    <select id="queryAll" resultType="com.rgobj.generalproblemdemo.bean.QuestionInfoBean">
+            select * from question_set
+    </select>
+
+    <select id="queryByTeacherUser" resultType="com.rgobj.generalproblemdemo.bean.QuestionInfoBean">
+            SELECT * FROM question_set WHERE question_username = #{question_username}
+    </select>
+
+    <select id="queryByQsetCode" resultType="com.rgobj.generalproblemdemo.bean.QuestionInfoBean">
+            SELECT * FROM question_set WHERE question_code = #{question_code}
+    </select>
+    
+    <update id="updateInfo" parameterType="com.rgobj.generalproblemdemo.bean.QuestionInfoBean">
+            UPDATE question_set SET question_title = #{question_title},question_type = #{question_type} WHERE question_code = #{question_code}
+    </update>
+
+    <insert id="addInfo" parameterType="com.rgobj.generalproblemdemo.bean.QuestionInfoBean">
+            insert into question_set (question_title,question_author,question_time,question_type,question_username,question_totalpoints) values (#{question_title},#{question_author},#{question_time},#{question_type},#{question_username},#{question_totalpoints})
+    </insert>
+    
+    <select id="queryCode" resultType="int">
+            SELECT question_code FROM  question_set WHERE question_username  = #{question_username} and question_time = #{question_time}
+    </select>
+
+</mapper>

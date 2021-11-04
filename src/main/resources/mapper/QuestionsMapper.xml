@@ -1,0 +1,22 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.rgobj.generalproblemdemo.mapper.QuestionsMapper">
+
+    <select id="queryAll" resultType="com.rgobj.generalproblemdemo.bean.QuestionsBean">
+            select * from question
+    </select>
+
+    <select id="queryAllByCode" resultType="com.rgobj.generalproblemdemo.bean.QuestionsBean">
+            select * from question WHERE questions_code = #{questions_code}
+    </select>
+
+    <update id="upadateQset" parameterType="com.rgobj.generalproblemdemo.bean.QuestionsBean">
+        UPDATE question SET questions = #{questions},answer_a = #{answer_a},answer_b = #{answer_b},answer_c = #{answer_c},answer_d = #{answer_d},answer_right = #{answer_right} WHERE questions_code = #{question_code} and questions_counter = #{questions_counter}
+    </update>
+
+    <insert id="addQset" parameterType="com.rgobj.generalproblemdemo.bean.QuestionsBean">
+        insert into question values (#{questions},#{answer_a},#{answer_b},#{answer_c},#{answer_d},#{answer_right},#{questions_author},#{questions_code},#{questions_counter},#{questions_score})
+    </insert>
+
+</mapper>

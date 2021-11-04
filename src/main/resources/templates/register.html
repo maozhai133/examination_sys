@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>注册页面</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport"/>
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" th:href="@{/assets/bower_components/bootstrap/dist/css/bootstrap.min.css}"
+          href="../static/assets/bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css"/>
+    <!--    <link rel="stylesheet" href="assets/bower_components/bootstrap/dist/css/bootstrap.min.css" />-->
+    <!-- Font Awesome -->
+    <link rel="stylesheet" th:href="@{/assets/bower_components/font-awesome/css/font-awesome.min.css}"
+          href="../static/assets/bower_components/font-awesome/css/font-awesome.min.css" type="text/css"/>
+    <!-- Ionicons -->
+    <link rel="stylesheet" th:href="@{/assets/bower_components/Ionicons/css/ionicons.min.css}"
+          href="../static/assets/bower_components/Ionicons/css/ionicons.min.css" type="text/css"/>
+    <!-- Theme style -->
+    <link rel="stylesheet" th:href="@{/assets/css/AdminLTE.min.css}"
+          href="../static/assets/css/AdminLTE.min.css" type="text/css"/>
+    <!-- iCheck -->
+    <link rel="stylesheet" th:href="@{/assets/plugins/iCheck/square/blue.css}"
+          href="../static/assets/plugins/iCheck/square/blue.css" type="text/css"/>
+</head>
+<body class="hold-transition register-page">
+<!--<div align="center">-->
+<!--    <br><br>注册界面<br><br>-->
+<!--    <form method="post" action="/RegisterSuccess">-->
+<!--        用户名:<input type="text" name="username" placeholder="请输入用户名" required/><br><br>-->
+<!--        密码：<input type="text" name="password" placeholder="请输入密码" required/><br><br>-->
+<!--        确认密码：<input type="text" name="password2" placeholder="请输入密码" required/><br><br>-->
+<!--        姓名:<input type="text" name="name" placeholder="请输入姓名" required><br><br>-->
+
+<!--        <input type="radio" name="registertype" value="1">我是教师-->
+<!--        <input type="radio" name="registertype" value="2">我是学生<br>-->
+<!--        <input type="submit" value="注册">-->
+<!--    </form>-->
+<!--</div>-->
+<div class="register-box">
+    <div class="register-logo">
+        <a href="#">用户注册</a>
+    </div>
+
+    <div class="register-box-body">
+        <p class="login-box-msg">注册用户</p>
+        <span th:text="${data}" style="color:red;font-size: 10px"></span>
+        <form action="/RegisterSuccess" method="post">
+            <div class="form-group has-feedback">
+                <input type="text" class="form-control" name="username" placeholder="用户名" required>
+                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="text" class="form-control" name="name" placeholder="姓名" required>
+                <span class="glyphicon glyphicon glyphicon-cloud form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="password" class="form-control" name="password" placeholder="密码" required>
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="password" class="form-control" name="password_re" placeholder="确认密码" required>
+                <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+            </div>
+            <div class="row">
+                <div class="col-xs-8">
+                        <input type="radio" name="registertype" value="1">&nbsp;我是教师
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="registertype" value="2">&nbsp;我是学生
+                </div>
+                <!-- /.col -->
+                <div class="col-xs-4">
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">注册</button>
+                </div>
+                <!-- /.col -->
+            </div>
+        </form>
+        <a href="/toLogin" class="text-center">已有账号，返回登陆</a>
+    </div>
+    <!-- /.form-box -->
+</div>
+<!-- /.register-box -->
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script th:src="@{https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js}" type="text/javascript"></script>
+<script th:src="@{https://oss.maxcdn.com/respond/1.4.2/respond.min.js}" type="text/javascript"></script>
+<![endif]-->
+
+<!-- jQuery 3 -->
+<script th:src="@{/assets/bower_components/jquery/dist/jquery.min.js}"
+        src="../static/assets/bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+<!-- Bootstrap 3.3.7 -->
+<script th:src="@{/assets/bower_components/bootstrap/dist/js/bootstrap.min.js}"
+        src="../static/assets/bower_components/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+<!-- iCheck -->
+<script th:src="@{/assets/plugins/iCheck/icheck.min.js}"
+        src="../static/assets/plugins/iCheck/icheck.min.js" type="text/javascript"></script>
+<script>
+    $(function () {
+        $('input').iCheck({
+            checkboxClass: 'icheckbox_square-blue',
+            radioClass: 'iradio_square-blue',
+            increaseArea: '20%' /* optional */
+        });
+    });
+</script>
+
+</body>
+</html>
